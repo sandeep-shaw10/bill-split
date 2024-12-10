@@ -1,0 +1,87 @@
+*{
+    font-family: Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.head{
+    font-size: 40px;
+    color: #217272;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.input label{
+    padding: 5px 0px;
+    font-size: 28px;
+    color: #217272;
+}
+
+#numberInput{
+    height: 56px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 40px;
+    color: #b8dbdb;
+    background-color: #217272;
+    border-color: #56c0c0;
+}
+
+#numberInput:focus-visible{
+    outline-color: #56c0c0;
+}
+
+.percent{
+    color: #217272;
+    font-weight: bold;
+    font-size: 45px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.error{
+    color: #cb5e46;
+    font-weight: bold;
+    font-size: 50px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.slider{
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#slider{
+    width: 90vw;
+}
+
+
+@media only screen and (min-width: 720px) {
+    .wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    .wrap {
+        width: 50vw;
+        padding: 40px 10px;
+        margin: 20px;
+        box-shadow: 0 3px 50px rgb(0 0 0 / 0.2);
+        border-radius: 20px;
+    }
+  }

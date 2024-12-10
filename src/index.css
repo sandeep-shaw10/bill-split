@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+/* Global styles */
+@media print {
+  body {
+    margin: 0; /* Remove margins from the body */
+    padding: 0;
+  }
+
+  /* Remove left and right space (margins) */
+  .min-h-screen {
+    margin: 0 !important;  /* Remove any left and right margin */
+    padding: 0 !important; /* Remove padding */
+  }
+
+  .w-full {
+    width: 100% !important; /* Make width 100% on print */
+  }
+
+  /* Optional: Adjust font sizes for better readability */
+  body, h1, h2, p {
+    font-size: 12pt;
+  }
+
+  /* Optional: Hiding elements you don’t want to print (e.g., footer or header) */
+  .no-print {
+    display: none;
+  }
+
+  /* Ensure the page content is properly centered and fits in the printed page */
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+}
+

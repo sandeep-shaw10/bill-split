@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/bill-split/dev-sw.js?dev-sw', { scope: '/bill-split/', type: 'classic' })
