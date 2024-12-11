@@ -58,7 +58,7 @@ const App = () => {
       <div className='print-view'>
       <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
-      <main className="w-full max-w-md lg:max-w-4xl space-y-4">
+      <main className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-4xl space-y-4 overflow-hidden">
         {/* Section Container */}
         <div className="space-y-4">
           <Members

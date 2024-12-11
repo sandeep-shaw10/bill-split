@@ -5,6 +5,10 @@ const Members = ({ isDarkMode, members, setMembers, expenditures }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleAddMember = () => {
+    if (inputValue.trim().length > 16) {
+      alert('Member name cannot exceed 16 characters.');
+      return;
+    }
     if (inputValue.trim() !== '' && !members.includes(inputValue.trim())) {
       setMembers([...members, inputValue.trim()]);
       setInputValue(''); // Clear input field after adding
@@ -12,6 +16,7 @@ const Members = ({ isDarkMode, members, setMembers, expenditures }) => {
       alert('This member is already added!');
     }
   };
+  
   
 
   const handleRemoveMember = (member) => {
@@ -54,7 +59,11 @@ const Members = ({ isDarkMode, members, setMembers, expenditures }) => {
       {/* Display added members as badges with delete option */}
       <div className="flex flex-wrap gap-2">
         {members.map((member, index) => (
-          <div key={index} className={`badge bg-blue-500 flex items-center border-none text-white h-6`}>
+          <div
+            key={index} 
+            className={`badge bg-blue-500 flex items-center border-none text-white h-auto py-1`}
+            style={{ wordBreak: 'break-word', maxWidth: '150px' }}
+          >
             {member}
             <button
               onClick={() => handleRemoveMember(member)}

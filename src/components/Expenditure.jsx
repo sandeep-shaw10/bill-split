@@ -11,6 +11,10 @@ const Expenditure = ({ members, expenditures, setExpenditures }) => {
 
   // Handle adding or updating the expenditure entry
   const handleAddOrUpdateExpenditure = () => {
+    if (details.trim().length > 32) {
+      alert('Expenditure detail cannot exceed 32 characters.');
+      return;
+    }
     if (details && expenditure && paidBy) {
       const newExpenditure = { details, expenditure: parseFloat(expenditure), paidBy };
 
@@ -82,60 +86,61 @@ const Expenditure = ({ members, expenditures, setExpenditures }) => {
 
       {/* Table for displaying expenditures */}
       {expenditures.length > 0 && (
-        <div className="overflow-x-auto mb-4">
-            <table className="table w-full">
-                <thead>
-                <tr className="bg-gray-200 dark:bg-gray-700">
-                    <th className="text-gray-700 dark:text-gray-300">Details</th>
-                    <th className="text-gray-700 dark:text-gray-300">Expenditure</th>
-                    <th className="text-gray-700 dark:text-gray-300">Paid By</th>
-                    <th className="text-gray-700 dark:text-gray-300">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {expenditures
-                  .slice()
-                  .reverse()
-                  .map((item, reversedIndex) => {
-                    const originalIndex = expenditures.length - 1 - reversedIndex; // Map reversed index to the original index
-                    return (
-                      <tr
-                        key={originalIndex}
-                        className={`${
-                          reversedIndex % 2 === 0
-                            ? "bg-gray-100 dark:bg-gray-800"
-                            : "bg-white dark:bg-gray-900"
-                        }`}
-                      >
-                        <td className="text-gray-800 dark:text-gray-200">{item.details}</td>
-                        <td className="text-gray-800 dark:text-gray-200">{item.expenditure}</td>
-                        <td className="text-gray-800 dark:text-gray-200">{item.paidBy}</td>
-                        <td>
-                          <button
-                            onClick={() => {
-                              setDetails(item.details);
-                              setExpenditure(item.expenditure);
-                              setPaidBy(item.paidBy);
-                              setEditIndex(originalIndex); // Use the original index for editing
-                            }}
-                            className="btn btn-xs bg-yellow-500 hover:bg-yellow-600 text-white dark:bg-yellow-600 dark:hover:bg-yellow-500 mr-2 border-none"
-                          >
-                            Edit
-                          </button>
-                          <button
-                            onClick={() => handleDeleteExpenditure(originalIndex)} // Use the original index for deletion
-                            className="btn btn-xs bg-red-500 hover:bg-red-600 text-white dark:bg-red-600 dark:hover:bg-red-500 border-none"
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-            </table>
-        </div>
-      )}
+  <div className="overflow-x-auto mb-4">
+    <table className="table w-full">
+      <thead>
+        <tr className="bg-gray-200 dark:bg-gray-700">
+          <th className="text-gray-700 dark:text-gray-300">Details</th>
+          <th className="text-gray-700 dark:text-gray-300">Expenditure</th>
+          <th className="text-gray-700 dark:text-gray-300">Paid By</th>
+          <th className="text-gray-700 dark:text-gray-300">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {expenditures
+          .slice()
+          .reverse()
+          .map((item, reversedIndex) => {
+            const originalIndex = expenditures.length - 1 - reversedIndex; // Map reversed index to the original index
+            return (
+              <tr
+                key={originalIndex}
+                className={`${
+                  reversedIndex % 2 === 0
+                    ? "bg-gray-100 dark:bg-gray-800"
+                    : "bg-white dark:bg-gray-900"
+                }`}
+              >
+                <td className="text-gray-800 dark:text-gray-200 break-words">{item.details}</td>
+                <td className="text-gray-800 dark:text-gray-200 break-words">{item.expenditure}</td>
+                <td className="text-gray-800 dark:text-gray-200 break-words">{item.paidBy}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      setDetails(item.details);
+                      setExpenditure(item.expenditure);
+                      setPaidBy(item.paidBy);
+                      setEditIndex(originalIndex); // Use the original index for editing
+                    }}
+                    className="btn btn-xs bg-yellow-500 hover:bg-yellow-600 text-white dark:bg-yellow-600 dark:hover:bg-yellow-500 mr-2 border-none"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDeleteExpenditure(originalIndex)} // Use the original index for deletion
+                    className="btn btn-xs bg-red-500 hover:bg-red-600 text-white dark:bg-red-600 dark:hover:bg-red-500 border-none"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+      </tbody>
+    </table>
+  </div>
+)}
+
 
       {/* Total and Per Person Expenditure */}
       {expenditures.length > 0 && (
