@@ -11,7 +11,7 @@ const Payment = ({ paymentID, setPaymentID }) => {
         value={paymentID}
         onChange={(e) => setPaymentID(e.target.value)}
         placeholder="Enter Payment ID"
-        className="input input-bordered input-sm w-full max-w-xs dark:text-gray-600"
+        className="input input-bordered input-sm w-full max-w-xs bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 dark:border-gray-600"
       />
     </div>
   );

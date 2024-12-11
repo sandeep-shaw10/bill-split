@@ -57,19 +57,19 @@ const Expenditure = ({ members, expenditures, setExpenditures }) => {
           placeholder="Details"
           value={details}
           onChange={(e) => setDetails(e.target.value)}
-          className="input input-bordered input-sm w-full max-w-xs mb-2 sm:mb-0 dark:text-gray-600"
+          className="input input-bordered input-sm w-full max-w-xs mb-2 sm:mb-0 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 dark:border-gray-600"
         />
         <input
           type="number"
           placeholder="Expenditure"
           value={expenditure}
           onChange={(e) => setExpenditure(e.target.value)}
-          className="input input-bordered input-sm w-full max-w-xs mb-2 sm:mb-0 dark:text-gray-600"
+          className="input input-bordered input-sm w-full max-w-xs mb-2 sm:mb-0 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 dark:border-gray-600"
         />
         <select
           value={paidBy}
           onChange={(e) => setPaidBy(e.target.value)}
-          className="select select-bordered select-sm w-full max-w-xs mb-2 sm:mb-0 dark:text-gray-600"
+          className="select select-bordered select-sm w-full max-w-xs mb-2 sm:mb-0 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 dark:border-gray-600"
         >
           <option value="">Paid By</option>
           {members.map((member, index) => (

@@ -41,7 +41,7 @@ const Members = ({ isDarkMode, members, setMembers, expenditures }) => {
           placeholder="Type here"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="input input-bordered input-sm w-full max-w-xs dark:text-gray-600"
+          className="input input-bordered input-sm w-full max-w-xs bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 dark:border-gray-600"
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               handleAddMember();
